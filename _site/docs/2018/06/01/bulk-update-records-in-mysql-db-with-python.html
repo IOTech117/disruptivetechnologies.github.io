@@ -1,0 +1,83 @@
+<p>Yesterday I spent a couple of hours trying to find the best way of updating multiple records in MySQL db using Python. Unfortunately could not find any really elegant way, as a result I ended up with using <code class="language-plaintext highlighter-rouge">'INSERT ON DUPLICATE KEY UPDATE'</code>.</p>
+
+<p>Sharing my code here, hope it will save you time. If you know any better way of updating multiple rows in mysql db with python, let me know in the comments.</p>
+
+<p>So, let’s say I have a <code class="language-plaintext highlighter-rouge">students</code> table wich looks like this:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>cate blanchett</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>sia furler</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>priyanka chopra</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>And let’s say I want to capitalize each word in the <code class="language-plaintext highlighter-rouge">name</code> column (in reality I needed to apply more complex transformation, but will be talking about capitalizing for simplicity).</p>
+
+<p>Here is the code that is doing a bulk update:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">sql_select</span> <span class="o">=</span> <span class="s">"SELECT id, name FROM students"</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s">'mysql+pymysql://root:123@127.0.0.1:3306/schooldb?charset=utf8'</span><span class="p">)</span>
+
+<span class="n">students_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql_select</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+<span class="n">students_df</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">students_df</span><span class="p">[</span><span class="s">'name'</span><span class="p">].</span><span class="nb">str</span><span class="p">.</span><span class="n">title</span><span class="p">()</span>
+<span class="n">students_tp</span> <span class="o">=</span> <span class="nb">str</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">prod</span><span class="p">)</span> <span class="k">for</span> <span class="n">prod</span> <span class="ow">in</span> <span class="n">students_df</span><span class="p">.</span><span class="n">values</span><span class="p">]).</span><span class="n">strip</span><span class="p">(</span><span class="s">'[]'</span><span class="p">)</span>
+
+<span class="n">sql_update</span> <span class="o">=</span> <span class="s">"INSERT INTO students (id, name) VALUES "</span> <span class="o">+</span> <span class="n">students_tp</span> <span class="o">+</span> <span class="s">" ON DUPLICATE KEY UPDATE name=VALUES(name)"</span>
+
+<span class="n">engine</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql_update</span><span class="p">)</span></code></pre></figure>
+
+<p>Basically what I am doing here is:</p>
+<ul>
+  <li>getting data from the DB table using <code class="language-plaintext highlighter-rouge">sqlalchemy</code></li>
+  <li>storing it into dataframe (to do so need to import <code class="language-plaintext highlighter-rouge">pandas</code>)</li>
+  <li>applying the transformation I need (in this case I am capitalizing each word in the <code class="language-plaintext highlighter-rouge">name</code> column using <code class="language-plaintext highlighter-rouge">title()</code> function)</li>
+  <li>converting the transformed dataframe to tuples (so that the data will look like <code class="language-plaintext highlighter-rouge">(1, 'Cate Blanchett'), (2, 'Sia Furler'), (3, 'Priyanka Chopra')</code>)</li>
+  <li>updating the table using ‘INSERT INTO’ … ‘ON DUPLICATE KEY UPDATE’ statement</li>
+</ul>
+
+<p>This is how the database table looks like after I ran my script:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Cate Blanchett</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Sia Furler</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Priyanka Chopra</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Easy. But I still feel there should be a better way…</p>

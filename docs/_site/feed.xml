@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-10-12T03:35:47-05:00</updated><id>/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2021/10/11/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2021-10-11T22:44:44-05:00</published><updated>2021-10-11T22:44:44-05:00</updated><id>/jekyll/update/2021/10/11/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2021/10/11/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-12T05:48:28-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Javier Tinoco Diaz Website</title><subtitle>This is an experimental website for the MIT program Cloud &amp; DevOps. Started a journey about disruptive tecnologies for the way of doing business</subtitle><author><name>Javier Tinoco Diaz</name></author><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2021/10/11/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2021-10-11T22:44:44-05:00</published><updated>2021-10-11T22:44:44-05:00</updated><id>http://localhost:4000/jekyll/update/2021/10/11/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/10/11/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
 
@@ -14,4 +14,297 @@
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Tom&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &apos;Hi, Tom&apos; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated. Jekyll requires blog post files to be named according to the following format: YEAR-MONTH-DAY-title.MARKUP Where YEAR is a four-digit number, MONTH and DAY are both two-digit numbers, and MARKUP is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works. Jekyll also offers powerful support for code snippets: def print_hi(name) puts &quot;Hi, #{name}&quot; end print_hi(&apos;Tom&apos;) #=&amp;gt; prints &apos;Hi, Tom&apos; to STDOUT. Check out the Jekyll docs for more info on how to get the most out of Jekyll. File all bugs/feature requests at Jekyll’s GitHub repo. If you have questions, you can ask them on Jekyll Talk.</summary></entry></feed>
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Javier Tinoco Diaz</name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated. Jekyll requires blog post files to be named according to the following format: YEAR-MONTH-DAY-title.MARKUP Where YEAR is a four-digit number, MONTH and DAY are both two-digit numbers, and MARKUP is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works. Jekyll also offers powerful support for code snippets: def print_hi(name) puts &quot;Hi, #{name}&quot; end print_hi(&apos;Tom&apos;) #=&amp;gt; prints &apos;Hi, Tom&apos; to STDOUT. Check out the Jekyll docs for more info on how to get the most out of Jekyll. File all bugs/feature requests at Jekyll’s GitHub repo. If you have questions, you can ask them on Jekyll Talk.</summary></entry><entry><title type="html">First six months of being a developer</title><link href="http://localhost:4000/2020/05/31/first-six-months-of-being-a-developer.html" rel="alternate" type="text/html" title="First six months of being a developer" /><published>2020-05-31T09:52:00-05:00</published><updated>2020-05-31T09:52:00-05:00</updated><id>http://localhost:4000/2020/05/31/first-six-months-of-being-a-developer</id><content type="html" xml:base="http://localhost:4000/2020/05/31/first-six-months-of-being-a-developer.html">&lt;p&gt;Six months ago, the biggest dream of my past few years came true: I became a developer. Overall, it’s been great six months, and I never regret about my choice, but it was also very hard 6 months for me. In this post, I want to talk about my first six months of being a developer, mostly about challenges :)&lt;/p&gt;
+
+&lt;p&gt;The hardest thing was probably &lt;strong&gt;work from home&lt;/strong&gt;. The company I work for switched to WFH mode since February. And what is “work from home” for a developer? On the one hand, nobody bothers you, nobody comes to your desk. But on the other hand, you also can’t come to anyone’s desk :). No face-to-face discussions with the team mates, no lunches together, no drawing on the white board, and when you have any dependencies (you have them always) you have to resolve them in chat.&lt;/p&gt;
+
+&lt;p&gt;Second challenge have been the &lt;strong&gt;amount of learning&lt;/strong&gt; I need to do every day. I mentioned this previously in &lt;a href=&quot;http://www.natalyakosenko.com/2020-01-22-my-dream-to-work-as-a-developer-came-true&quot;&gt;the article I wrote when I just became a developer&lt;/a&gt;. Now, after six months, the amount of learning is not getting any less yet. I can’t see I am going to stop learning any time soon. Unless I work only on a single project, and all I do is maintenance and no new features.&lt;/p&gt;
+
+&lt;p&gt;Past 6 months learning: Node.js, Golang, Java, TypeScript, Docker, Kubernetes, Pub/Sub, Google Cloud stuff (Cloud Functions, GCS, BigQuery), etc. Why I call it “challenge”, because I can’t take my sweet time learning new things, as there is job to be done. What is more, there is not always an expert around me, who I could ask when I have questions. Well, I was lucky with Kubernetes, one of my colleagues guided me a lot. I was lucky with Golang too, as my boss gave me a good book to read. But not always I am so lucky, still need to spend lots of time reading and watching online courses.&lt;/p&gt;
+
+&lt;p&gt;Another thing about learning is that there is no ultimate knowledge. Knowledge is elusive. Sometimes I feel like I know something. But then something happens (like production incident), and I realise that I do not know anything.&lt;/p&gt;
+
+&lt;p&gt;Third challenge for me is &lt;strong&gt;doubt&lt;/strong&gt;. I constantly doubt my code: variable names, code structure, database structure, certain architectural decisions, etc. Even if I am satisfied with my code today, it does not mean I will be satisfied with it tomorrow. I am not sure if it is just me, because I am a relatively new developer, or “doubt” is something inherent to software development?&lt;/p&gt;
+
+&lt;p&gt;Another challenge is &lt;strong&gt;code reviews&lt;/strong&gt;. Developer’s job is always under exposure. Every line of code developer writes is reviewed by other developers. Imagine if every email you write, or every presentation you do, or every call you join, is reviewed by someone else. And someone else telling you: “this paragraph in the email you should rewrite, because you already touched the same topic in the paragraph above, and btw you have typo in the line 22 of your email”.&lt;/p&gt;
+
+&lt;p&gt;Well, this is a good thing, you will learn how to write perfect emails and presentations (provided people who review your work give you valuable comments). But it also adds some mental pressure, knowing that your work will be scrutinized by someone, and that someone might have different opinion. Ok, so far I haven’t got any tough comments in my pull requests, it never happened that myself and reviewer completely disagreed about the approach. But still I have this “heart trembling” when sending my PRs for review :)&lt;/p&gt;
+
+&lt;p&gt;Last challenge I want to mention is “&lt;strong&gt;unsolvable problems&lt;/strong&gt;”. In mathematics, there are &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics&quot;&gt;hard problems that remain unsolved for years&lt;/a&gt;. In my team, there are some technical problems that are unsolved for a few months. Such problems are being treated by restarting servers or simply by ignoring them, because sometimes search for a solution might take days if not weeks, and there is not always a bandwidth for it. This is a really hard part for me, going to sleep and knowing that there is something not resolved. For example, since last Thursday one of our Node.js applications has been eating a large amount of CPU. No changes to the code, no changes to the infrastructure, and no ideas (yet) on how to resovle it. Sad by classic story…&lt;/p&gt;
+
+&lt;p&gt;But enough about challenges. If I met a few years younger version of myself, would I still recommend her to pursue a career of a software developer? Of course I would! Because all the challenges are forgotten when you see your code running in production. It’s like seeing people in the house you built, or seeing art piece you created in a museum, or seeing shadow of 100-year oak you planted. But even better.&lt;/p&gt;</content><author><name>Javier Tinoco Diaz</name></author><category term="coding" /><summary type="html">Six months ago, the biggest dream of my past few years came true: I became a developer. Overall, it’s been great six months, and I never regret about my choice, but it was also very hard 6 months for me. In this post, I want to talk about my first six months of being a developer, mostly about challenges :)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/post_images/2020-05-31-ocean.jpg" /><media:content medium="image" url="http://localhost:4000/assets/post_images/2020-05-31-ocean.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">My dream to work as a developer came true</title><link href="http://localhost:4000/2020/01/22/my-dream-to-work-as-a-developer-came-true.html" rel="alternate" type="text/html" title="My dream to work as a developer came true" /><published>2020-01-22T07:03:00-06:00</published><updated>2020-01-22T07:03:00-06:00</updated><id>http://localhost:4000/2020/01/22/my-dream-to-work-as-a-developer-came-true</id><content type="html" xml:base="http://localhost:4000/2020/01/22/my-dream-to-work-as-a-developer-came-true.html">&lt;p&gt;Two years ago I wrote a post about &lt;a href=&quot;http://www.natalyakosenko.com/2018-01-06-how-i-learned-to-code-at-the-age-of-38&quot;&gt;how I learned to code at the age of 38&lt;/a&gt;. Back then I was full of doubts if I ever will be able to work as a developer. I felt like I was trying to catch a train that left twenty years ago. But at the same time I could not see my life without programming any more.&lt;/p&gt;
+
+&lt;p&gt;These few years I spent &lt;a href=&quot;http://www.natalyakosenko.com/2018-10-06-what-it-feels-like-to-study-masters-in-ntu-singapore&quot;&gt;studying&lt;/a&gt;, &lt;a href=&quot;http://www.natalyakosenko.com/2018-06-29-my-first-programming-meetup-experience&quot;&gt;attending programming meetups&lt;/a&gt;, and, the most importantly, coding and learning, learning and coding almost every day including weekends.&lt;/p&gt;
+
+&lt;p&gt;One day a few weeks ago my boss showed me a new organisational chart, and under my name there were two words: “Team Lead”. No more “manager”, no more “head of whatsoever”. Before that in my wildest dreams I was imagining myself becoming a developer, but I never imagined it to be that simple and that natural. Until now I did not even celebrate it.&lt;/p&gt;
+
+&lt;p&gt;First few weeks of my official developer life were on the one hand full of happiness, as I’ve been doing the things I love and was even getting paid for it. On the other hand I had to face some challenges of being a real developer. It’s not a hobby any more, it is real, and the challenges are real too.&lt;/p&gt;
+
+&lt;p&gt;First challenge was &lt;strong&gt;making technical decisions at work&lt;/strong&gt;. Well, I did not make any big decisions, but even small decicions were not so easy. I thought: “I will read about it, then will discuss it with someone, and if still in doubt will ask the team lead for advise. Oh shit, the team lead is me!..”&lt;/p&gt;
+
+&lt;p&gt;Second challenge was realization of the fact that &lt;strong&gt;there is a lot of legacy software around&lt;/strong&gt;, and you and your teammates still need to maintain it or rebuild it, no excuses. Unfortunately you can’t say: “I am not the one who built it, it was built when I still was in a kindergarten, I do not know this programming language, there is no documentation, there is no tests, so don’t ask me about it” (although I was trying to say this a few times :))… When I was doing coding just for fun 3 years back, I could choose which part to work on. Now I still can choose, but not everything, something simply have to do because have to do.&lt;/p&gt;
+
+&lt;p&gt;Third challenge is &lt;strong&gt;amount of learning&lt;/strong&gt; I am doing every day, and paradoxically despite that I feel myself like Socrates, “I know that I know nothing”, or rather like Albert Einstein, “The more I learn, the more I realize how much I don’t know.”.&lt;/p&gt;
+
+&lt;p&gt;There were many other small challenges, mostly technical, like rebuilding one of the “naugthy and misbehaving” Python/Django applications during Christmas holidays, or setting up CI/CD pipeline, or start writing unit tests (which I admit I was not very good at).&lt;/p&gt;
+
+&lt;p&gt;Apart of challenges there were some good things too. The biggest thing I like about being a developer so far is equality. I think programming world is a very fair world, everybody is equal. It does not matter you learned programming at the age of 38 or 15, or which country are you from, or what is your gender. Only matters is your learning journey, and what do you do with your knowledge.&lt;/p&gt;
+
+&lt;p&gt;Let’s see how it goes, I hope will keep enjoying and hope will be able to eliminate some of the challenges.&lt;/p&gt;</content><author><name>Javier Tinoco Diaz</name></author><category term="coding" /><summary type="html">Two years ago I wrote a post about how I learned to code at the age of 38. Back then I was full of doubts if I ever will be able to work as a developer. I felt like I was trying to catch a train that left twenty years ago. But at the same time I could not see my life without programming any more.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/post_images/2020-01-22-candies-chokolate.jpg" /><media:content medium="image" url="http://localhost:4000/assets/post_images/2020-01-22-candies-chokolate.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Enjoying Android development through pain</title><link href="http://localhost:4000/2019/10/14/enjoying-android-development-through-pain.html" rel="alternate" type="text/html" title="Enjoying Android development through pain" /><published>2019-10-14T09:03:00-05:00</published><updated>2019-10-14T09:03:00-05:00</updated><id>http://localhost:4000/2019/10/14/enjoying-android-development-through-pain</id><content type="html" xml:base="http://localhost:4000/2019/10/14/enjoying-android-development-through-pain.html">&lt;p&gt;A few months ago I was sitting at my friend’s house, as usual talking about programming and drinking tea. Somehow we came to a conclusion that why don’t we build a mobile app. The friend was going to do a design, while I supposed to code. My coding enthusiasm stopped after I tried React Native and then Kotlin, could not choose whether I want to build a hybrid app or native (but actually I just got lazy and scared I can’t make it).&lt;/p&gt;
+
+&lt;p&gt;Nevertheless, this semester I signed up for Mobile App Development course in NTU, decided to give it one more try. I did not have a choice of iOS or Android, hybrid or native, the choice was made for me by the course’s curriculum: Android Java. And this is how my evenings with Android have started…&lt;/p&gt;
+
+&lt;p&gt;I can do web frontend, I thought. I can do backend. I should definitely have no problem with Android. I started with small things: got some understanding about activity lifecycle, gestures, scene transitions, intents, etc. Wrote a couple of small games. After that, inspired by my own imaginary success, I decided to do something slightly bigger: an application that gets some data from API and displays it.&lt;/p&gt;
+
+&lt;p&gt;First commit I committed on 29 September. Since then I have been writing code almost every evening and every free time during weekend. Guess, how far have I progressed so far? Only a couple of screens both of which are half way done. These are the screens:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/post_images/2019-10-14-screen1.png&quot; width=&quot;320&quot; /&gt;
+&lt;img src=&quot;http://localhost:4000/assets/post_images/2019-10-14-screen2.png&quot; width=&quot;320&quot; style=&quot;clear: right;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;These 2 weeks I went through despair, self-depreciation, frustration with Android overall and especially with Java, feeling myself miserable (but in between there were short moments of enjoyment). These are a few things that made me struggle:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;XML Layouts&lt;/strong&gt;. Basically, in Android layout can be created by writing XML code or by using drag-and-drop interface. Drag-and-drop drove me crazy: elements did not look the same way in Emulator as they looked in Android Studio, elements did not want to move or moved by themselves whatever places they wanted. Writing XML code felt slightly better, but it is super verbose: just an empty screen with 1 button on it could be 15 lines of xml code.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Got confused between &lt;strong&gt;Constraint, Relative and Linear layouts&lt;/strong&gt;. Got confused even more when I found out that RelativeLayout is a legacy which was replaced by ConstraintLayout. How I supposed to know when do I use which? Until now no clue, but I guess it should come with practice.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Adding a list&lt;/strong&gt; to the screen and populating it with data from the API was a nightmare. At first I used a ListView. With the help of Stack Overflow was able to make it work. Then discovered that ListView is a legacy which is replaced by RecyclerView. Spent 2 days to replace ListView with RecyclerView (until now do not fully understand how my code works (especially RecyclerView Adapter) but it works).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Making an element at the top of RecyclerView &lt;strong&gt;scroll together with RecyclerView&lt;/strong&gt; took me another 2 days (until I found such a wonderful thing as NestedScrollView).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Java itself feels very verbose. &lt;strong&gt;570 lines of Java code&lt;/strong&gt; was written for these 2 screens (and additionally 454 lines of xml code by the way):
+&lt;img src=&quot;http://localhost:4000/assets/post_images/2019-10-14-code-lines.png&quot; width=&quot;640&quot; style=&quot;display:block&quot; /&gt;
+Well, I can’t complain about Java, it is what it is. But still, I feel like I wrote tons of code, but in reality there is nothing. It’s like when you come to an expensive restaurant, pay a lot but come out hungry - this is how I feel after writing Java code.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Having said all of that, deep inside my heart I enjoyed all this time. It is not the same kind of enjoyment I have when writing Python or React.js code, but something different. The code is compiling, the app is not crashing, scroll is working - what more can I wish for?&lt;/p&gt;</content><author><name>Javier Tinoco Diaz</name></author><category term="coding" /><category term="android" /><category term="java" /><summary type="html">A few months ago I was sitting at my friend’s house, as usual talking about programming and drinking tea. Somehow we came to a conclusion that why don’t we build a mobile app. The friend was going to do a design, while I supposed to code. My coding enthusiasm stopped after I tried React Native and then Kotlin, could not choose whether I want to build a hybrid app or native (but actually I just got lazy and scared I can’t make it).</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/post_images/2019-10-14-pain-and-pleasure.jpg" /><media:content medium="image" url="http://localhost:4000/assets/post_images/2019-10-14-pain-and-pleasure.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Life of a developer is not what I thought</title><link href="http://localhost:4000/2019/07/03/developer-life-is-not-as-carefree-as-it-seems.html" rel="alternate" type="text/html" title="Life of a developer is not what I thought" /><published>2019-07-03T11:39:00-05:00</published><updated>2019-07-03T11:39:00-05:00</updated><id>http://localhost:4000/2019/07/03/developer-life-is-not-as-carefree-as-it-seems</id><content type="html" xml:base="http://localhost:4000/2019/07/03/developer-life-is-not-as-carefree-as-it-seems.html">&lt;p&gt;Since 2016 I have been obsessed with coding. Life of a developer I imagined like a butterfly flight: you are flying from feature to feature, surrounded by other beautiful butterflies. I thought: one day I will be a part of it, I will work as a developer in a strong and smart team, I will learn from my teammates every day and will share whatever I know, I will be grateful for every comment in my pull request and will diligently review others code.
+&lt;img src=&quot;http://localhost:4000/assets/post_images/2019-07-04-butterfly.jpg&quot; width=&quot;640&quot; style=&quot;display:block&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3 years passed… I have been coding almost every day. My programming interests were jumping from backend to fronted, from frontend to devops, back and forth. A few days ago, I caught myself reviewing someone’s pull request. I caught myself thinking: this is the Moment, this is what I wanted. And you know what? I did not feel myself like that butterfly. I only thought about the pull request: “why, why, why write code like this?”, and only one thing I wanted: to stop seeing this code.&lt;/p&gt;
+
+&lt;p&gt;So life of a developer is not as carefree as it seems. The more you know, the more you get upset with others’ code. The less you know, the more other people get upset with your code. The goal is to know more and do not be upset. Not easy, but should be doable I think.&lt;/p&gt;</content><author><name>Javier Tinoco Diaz</name></author><category term="coding" /><summary type="html">Since 2016 I have been obsessed with coding. Life of a developer I imagined like a butterfly flight: you are flying from feature to feature, surrounded by other beautiful butterflies. I thought: one day I will be a part of it, I will work as a developer in a strong and smart team, I will learn from my teammates every day and will share whatever I know, I will be grateful for every comment in my pull request and will diligently review others code.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/post_images/2019-07-04-butterfly.jpg" /><media:content medium="image" url="http://localhost:4000/assets/post_images/2019-07-04-butterfly.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Dockerizing Next.js application</title><link href="http://localhost:4000/2019/06/13/dockerizing-next-js-application.html" rel="alternate" type="text/html" title="Dockerizing Next.js application" /><published>2019-06-13T10:15:00-05:00</published><updated>2019-06-13T10:15:00-05:00</updated><id>http://localhost:4000/2019/06/13/dockerizing-next-js-application</id><content type="html" xml:base="http://localhost:4000/2019/06/13/dockerizing-next-js-application.html">&lt;p&gt;One former colleague of mine used to say that even a monkey can become a DevOps engineer if put some effort. So I asked him to make DevOps engineer out of me. “Sure”, he said and gave me my first assignment: to read a book “How Linux Works: What Every Superuser Should Know” by Brian Ward. I abandoned the book in the middle, not because it was a boring book, but because it was hard to read the pure theory without applying it. However since then I got some interest in devops stuff.&lt;/p&gt;
+
+&lt;p&gt;Yesterday I tryied to dockerize my next.js application and was surprised how easy it was. If you the same as me before think that Docker is too complex, I can say that it’s not (or maybe I have not got into complexity yet). Below are the steps I performed to get my app into a docker container.&lt;/p&gt;
+
+&lt;h2 id=&quot;install-docker&quot;&gt;Install Docker&lt;/h2&gt;
+
+&lt;p&gt;You can download Docker installer from the &lt;a href=&quot;https://docs.docker.com/install/&quot;&gt;official site&lt;/a&gt;. Installation went smooth on my Mac machine, however I got into minor issues when was doing the same on Linux CentOS.
+Here are the installation steps for CentOS:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce
+sudo usermod -aG docker $(whoami)
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If there is an error during &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-ce&lt;/code&gt; installation, this command might help:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install http://vault.centos.org/centos/7.3.1611/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;create-dockerfile&quot;&gt;Create Dockerfile&lt;/h2&gt;
+
+&lt;p&gt;Create Dockerfile and place it in the root of your Next.js application. Here is my Dockerfile:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FROM node:alpine
+
+# Set working directory. All the paths will be relative to WORKDIR
+WORKDIR /opt/dist
+
+# Install PM2 globally
+RUN npm install --global pm2
+
+# Install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy source files
+COPY . .
+
+# Build the app
+RUN npm run build
+
+# Run the app
+CMD [ &quot;pm2-runtime&quot;, &quot;start&quot;, &quot;npm&quot;, &quot;--&quot;, &quot;start&quot; ]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Btw, do not repeat my mistake: originally the first line of my docker file was &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FROM node:12&lt;/code&gt;. As a result a final docker image was huge, about 1.3 Gb. I spent almost 1 hour trying to understand what makes the image so large, then found &lt;a href=&quot;https://github.com/nodejs/docker-node/issues/311&quot;&gt;the github issue&lt;/a&gt; which recommends to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node:slim&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node:alpine&lt;/code&gt; variants that are much more reasonable in size.&lt;/p&gt;
+
+&lt;h2 id=&quot;build-docker-image&quot;&gt;Build Docker image&lt;/h2&gt;
+
+&lt;p&gt;Run this command to create a docker image:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker build -t my_app .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;run-docker-container-from-the-image&quot;&gt;Run Docker container from the image&lt;/h2&gt;
+
+&lt;p&gt;This is the last step. To run Docker container type:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run -d -p 3000:3000 my_app:latest
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After that your application will be available at localhost:3000.
+Easy, right?&lt;/p&gt;
+
+&lt;h2 id=&quot;a-few-useful-docker-commands&quot;&gt;A few useful Docker commands&lt;/h2&gt;
+
+&lt;p&gt;To wrap it up, here are few Docker commands that I found useful during setup:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker ps # to see a list of running containers
+docker stop [container_id] # to stop given container
+docker images # to see a list of docker images
+docker logs [first 3 characters of container id] # to see a log of a given container
+docker rmi -f $(docker images -a -q) # to remove all docker images
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Coming back to the beginning of the article, have I became a DevOps after getting my Next app into Docker? Of course, no! It’s just baby steps, but I enjoy it a lot.&lt;/p&gt;</content><author><name>Javier Tinoco Diaz</name></author><category term="coding" /><category term="devops" /><summary type="html">One former colleague of mine used to say that even a monkey can become a DevOps engineer if put some effort. So I asked him to make DevOps engineer out of me. “Sure”, he said and gave me my first assignment: to read a book “How Linux Works: What Every Superuser Should Know” by Brian Ward. I abandoned the book in the middle, not because it was a boring book, but because it was hard to read the pure theory without applying it. However since then I got some interest in devops stuff.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/post_images/2019-06-13-docker.png" /><media:content medium="image" url="http://localhost:4000/assets/post_images/2019-06-13-docker.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Little joys of engineering manager</title><link href="http://localhost:4000/2019/06/04/little-joys-of-engineering-manager.html" rel="alternate" type="text/html" title="Little joys of engineering manager" /><published>2019-06-04T08:30:00-05:00</published><updated>2019-06-04T08:30:00-05:00</updated><id>http://localhost:4000/2019/06/04/little-joys-of-engineering-manager</id><content type="html" xml:base="http://localhost:4000/2019/06/04/little-joys-of-engineering-manager.html">&lt;p&gt;I can’t say my working life is full of joy. Production issues, deadlines, bad code here and there, developers with their “how?” and “why we need to do this?” and internal users with their “when?” and “why we can’t have this?”. Some days I feel myself like a character from this picture:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/post_images/2019-06-06-surrounded.jpg&quot; width=&quot;640&quot; style=&quot;display:block&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;But still, I have a few things that make me happy. Here are they, my little joys:&lt;/p&gt;
+
+&lt;h2 id=&quot;production-release&quot;&gt;Production release&lt;/h2&gt;
+
+&lt;p&gt;Imagine the world where writers do not publish their books, artists do not expose their drawings, or programmers do not release their code. Sounds desperate. The most enjoyable part of programming for me is shipping the code to production. Basically any code, but especially if I myself find this code useful.&lt;/p&gt;
+
+&lt;p&gt;In the team I currently work at, we have iOS/Android production releases 1-2 times a month. Not as often as I wish it to be, but those 1-2 days a month I am truly happy.&lt;/p&gt;
+
+&lt;h2 id=&quot;when-consensus-is-reached&quot;&gt;When consensus is reached&lt;/h2&gt;
+
+&lt;p&gt;There is often disagreement inside engineering teams. Back-end vs front-end, front-end vs designers, backend vs devops, etc. It’s good when people disagree, as during discussions better solutions can be found. But there is not always a discussion, can be silence instead. In such cases I need to participate. To be honest, previously I was biased towards backend. But after I learned React.js and a bit of Kotlin, I became more fair-minded (hopefully).&lt;/p&gt;
+
+&lt;p&gt;I like the moments when after a tough discussion a consensus is reached. I think, to improve the quality of decisions, everyone in the team should be full-stack. Well, maybe not full-stack all the time, but have familiarity with all the parts of the system.&lt;/p&gt;
+
+&lt;h2 id=&quot;when-a-great-idea-is-born&quot;&gt;When a great idea is born&lt;/h2&gt;
+
+&lt;p&gt;A couple of weeks back I had a discussion with a guy from Data engineering team in my company. We were thinking how to solve an issue, while touching as less code as possible. After we sifted through all the options possible, and all of them seemed to be so so, suddenly the guy came up with a brilliant idea! I was really touched that moment.&lt;/p&gt;
+
+&lt;h2 id=&quot;meet-passionate-programmers&quot;&gt;Meet passionate programmers&lt;/h2&gt;
+
+&lt;p&gt;As in any other profession, not everyone becomes a developer because of big passion. Also, not everyone able to keep the same level of passion for many years. That is why when I meet someone with big passion about coding, I feel inspired. When I see a developer was working over the weekend or long hours, I do not feel sorry but feel happy for him/her.&lt;/p&gt;
+
+&lt;h2 id=&quot;write-code&quot;&gt;Write code&lt;/h2&gt;
+
+&lt;p&gt;Every time I code I feel guilty and apologetic. I tell to myself: “Let everyone do their job, do not put your nose into the code”. But still I keep doing this, because the day I spent writing code is equal to the day when production release happened, great ideas were born and consensus was reached.&lt;/p&gt;
+
+&lt;p&gt;There are many other smaller things that make me happy at work, like a piece of chocolate or lunch in a good company. But these 5 things I mentioned are the major ones.&lt;/p&gt;</content><author><name>Javier Tinoco Diaz</name></author><category term="coding" /><summary type="html">I can’t say my working life is full of joy. Production issues, deadlines, bad code here and there, developers with their “how?” and “why we need to do this?” and internal users with their “when?” and “why we can’t have this?”. Some days I feel myself like a character from this picture:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/post_images/2019-06-06-surrounded.jpg" /><media:content medium="image" url="http://localhost:4000/assets/post_images/2019-06-06-surrounded.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Failed to get freelance programmer job</title><link href="http://localhost:4000/2018/12/10/failed-to-get-freelance-programmer-job.html" rel="alternate" type="text/html" title="Failed to get freelance programmer job" /><published>2018-12-10T22:30:00-06:00</published><updated>2018-12-10T22:30:00-06:00</updated><id>http://localhost:4000/2018/12/10/failed-to-get-freelance-programmer-job</id><content type="html" xml:base="http://localhost:4000/2018/12/10/failed-to-get-freelance-programmer-job.html">&lt;p&gt;I’ve been learning programming for 2 years now. I can’t call it “learning” any longer, it’s just “coding” almost every day, coding for my work, coding for my side projects, coding for my university projects. And reading: books, others’ code, blogs, anything that I find useful for improving my programming style.&lt;/p&gt;
+
+&lt;p&gt;However, coding itself did not make a programmer out of me. I am still a Manager, a Scrum Master: very close to programming, but not close enough. As we say in Russia “blizok lokot’, da ne ukusish’” - literally means &lt;strong&gt;“Your elbow is close, yet you can’t bite it”&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Recently I decided that if I keep going with the flow, I will probably never become a programmer at all. So I told myself: Natasha, you need to take a step. But as I am not a very brave person (not at all), my step was very small: to find a part-time freelance job, not more than 10-15 hours per week, so that I can do it on weekends. The idea was &lt;strong&gt;to feel the taste of money made by coding&lt;/strong&gt;, and to see how do I like it.&lt;/p&gt;
+
+&lt;p&gt;Although I touched many different technologies over the past 2 years (Java, Ruby, Python, JS, ReactJS/NextJS, a bit of Devops, this and that), but still the most confident I am in my Python skills. So my plan was to find some Python-related part-time projects, ideally writing web scrapers, processing data, etc.&lt;/p&gt;
+
+&lt;p&gt;My brother recommended me &lt;a href=&quot;https://www.upwork.com&quot; target=&quot;_blank&quot;&gt;Upwork&lt;/a&gt;, where I registered yesterday, filled in my profile and passed the Python &amp;amp; English tests there. This is what I wrote in my self-description:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Hi, I am a part-time Python developer, specialized in Web scraping. I have a full time office job (Product Manager in Mobile development team). The reason I am here is to have fun (as I love programming) and at the same time to help you with your Python-related tasks:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Build web scrapers&lt;/li&gt;
+    &lt;li&gt;Optimise your existing scrapers&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;I do not like messy code, so I write clean and maintainable code in timely manner.&lt;/p&gt;
+
+  &lt;p&gt;Technologies I use for scraping: Python, Selenium, BeautifulSoup and Pandas.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I did not put anything into “Employment history”, as I think my employment history is not very relevant.&lt;/p&gt;
+
+&lt;p&gt;The answer I received today was “We have reviewed your application to join, and regret to inform you that we are unable to accept your Upwork freelancer registration at this time.”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/post_images/2018-12-11-upwork.png&quot; width=&quot;640&quot; style=&quot;display:block&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I was really angry at first. I thought, how can you judge my ability to code if you never even saw my code? There was no real coding test, just multiple choice theory test which I passed. My colleague laughed at me, said I should have written some made-up employment history, and also should have mentioned more technologies in self-description.&lt;/p&gt;
+
+&lt;p&gt;So the whole evening I felt some bitterness inside, but now calmed down. First of all, there are already too many freelance programmers in Upwork much more skillful than me, why would Upwork want even more programmers? Secondly, it was only a single attempt, still can try again. Lastly, I remembered stories of my talented friends/colleages who were rejected for jobs. Even thought of Jack Ma who did not get waiter’s job in KFC. After that completely calmed down, no reason to be upset at all :)&lt;/p&gt;</content><author><name>Javier Tinoco Diaz</name></author><category term="coding" /><summary type="html">I’ve been learning programming for 2 years now. I can’t call it “learning” any longer, it’s just “coding” almost every day, coding for my work, coding for my side projects, coding for my university projects. And reading: books, others’ code, blogs, anything that I find useful for improving my programming style.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/post_images/2018-12-11-upwork.png" /><media:content medium="image" url="http://localhost:4000/assets/post_images/2018-12-11-upwork.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Study Master’s in NTU - continuation of my story</title><link href="http://localhost:4000/2018/11/28/study-masters-in-ntu-continuation-of-my-story.html" rel="alternate" type="text/html" title="Study Master’s in NTU - continuation of my story" /><published>2018-11-28T08:02:00-06:00</published><updated>2018-11-28T08:02:00-06:00</updated><id>http://localhost:4000/2018/11/28/study-masters-in-ntu-continuation-of-my-story</id><content type="html" xml:base="http://localhost:4000/2018/11/28/study-masters-in-ntu-continuation-of-my-story.html">&lt;p&gt;&lt;a href=&quot;http://www.natalyakosenko.com/2018-10-06-what-it-feels-like-to-study-masters-in-ntu-singapore&quot;&gt;Earlier&lt;/a&gt; I was telling a story about how I started to study masters in Nanyang Technological University. Today I am done with my first semester exams, and feel super happy about it. Decided to share about my first semester and exam experience.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-group-assignments&quot;&gt;About group assignments&lt;/h2&gt;
+&lt;p&gt;I was talking about group assignments in my previous post, but still want to repeat myself: group assignments were the biggest shock of my first semester. It really took me time to accept the idea of doing one assignment with a group of other people and getting the same grade.&lt;/p&gt;
+
+&lt;p&gt;At the beginning I felt like this: Imagine you need to cook 2-eggs omelette, and you need to do it together with 4-5 other people and later write a report about how you cooked the omelette. So kitchen is full of people, someone says: let’s cook scrambled eggs, another says: no, we supposed to cook boiled eggs. Someone else says he never tried eggs before. Another person adds salt, while salt was already added…&lt;/p&gt;
+
+&lt;p&gt;But in reality, at the end we had 5 people, who learned how to cook a perfect omelette. One of them shared with others the recipe of omelette with cheese, another one revealed the secret of adding chili. A person who never tried eggs before became an eggs fan. I really enjoyed it at the end, especially Programming assignment, as at the end we were functioning like a real (and good one) development team.&lt;/p&gt;
+
+&lt;p&gt;So, group assignments were the biggest disappointment and the biggest enjoyment of my first semester.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-the-courses&quot;&gt;About the courses&lt;/h2&gt;
+&lt;p&gt;I took 3 courses this semester: Programming, Data Mining and Information Architecture &amp;amp; Design. None of them were useless. I think about 10-15% of the knowledge I learned I applied immediately in my work (or pet projects).&lt;/p&gt;
+
+&lt;p&gt;The hardest subject for me was &lt;strong&gt;Information Architecture &amp;amp; Design&lt;/strong&gt;, as it’s not something precise like mathematics. For many topics we discussed in the class there was no 100% wrong or right answer. For example: “In your opinion, what are the benefits of ethnographic approach in conducting user research?”&lt;/p&gt;
+
+&lt;p&gt;My Design class (see if you can find me):
+&lt;img src=&quot;http://localhost:4000/assets/post_images/2018-11-28-first-semester.jpg&quot; width=&quot;640&quot; style=&quot;display:block&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In the &lt;strong&gt;Programming&lt;/strong&gt; course, we learned the whole bunch of stuff, everything just a little bit: Java, JavaScript, jQuery, AJAX, various CSS libraries, databases, etc. No modern frameworks, no popular programming languages, but still I enjoyed it a lot.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Data Mining&lt;/strong&gt; course was full of mathematics, which was forgotten by me completely (even though my million-year-ago Bachelor degree was in Mathematics). So now I remember again not only what is cosine or logarithm, but also Bayes’ theorem and other stuff. The best part of this course was practical assignment - write a classification model using gradient boosting algorithm. After that assignment I got inspiration and some interest in ML, even joined &lt;a href=&quot;https://www.meetup.com/PyData-SG/&quot;&gt;PyData Singapore group&lt;/a&gt; on meetup.sg.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-the-exams&quot;&gt;About the exams&lt;/h2&gt;
+&lt;p&gt;Finally, about the exams. I feel the lecturers’ attitude towards exams is quite different in NTU compared to my university in Russia (Novosibirsk State university). From the day one professors were telling us about the exams. Like: pay attention to this chapter, it will be on the exams. Or: remember, on the exam you need to write at least two paragraphs about this topic etc.&lt;/p&gt;
+
+&lt;p&gt;So even though I study for the purpose of getting knowledge and enjoyment, by the end of the semester I got quite nervous about the exams. Last couple of weeks I studied every single day in the MRT trains and after work (or at least opened a study book and sluggishly looked at it).&lt;/p&gt;
+
+&lt;p&gt;All the exams were written, mostly open questions (except Data Mining that had many test questions). The exam itself is a very serious event: no bags are allowed in the exam hall, mobile phones must be switched off and put on the floor under the desk. The only things can be on the table are: student card, pen/pencil and calculator. Exam lasts 3 hours. Students are allowed to go to washroom, but the professor will follow you literally until the toilet door. There is no chance to cheat at all.&lt;/p&gt;
+
+&lt;p&gt;I can’t say the exams were too hard though. The hardest was Programming, as I needed to write a few pages of Java and JavaScript code on a piece of paper - no Google, no Stackoverflow, and the most importantly, no auto-completion of code. But still doable.&lt;/p&gt;
+
+&lt;p&gt;So, today was my last exam, and I am free until January! Only need to work - feels like nothing after the whole semester of working and studying. Looking forward to the next semester, already saw a next semester’s course list full of interesting subjects.&lt;/p&gt;</content><author><name>Javier Tinoco Diaz</name></author><category term="education" /><summary type="html">Earlier I was telling a story about how I started to study masters in Nanyang Technological University. Today I am done with my first semester exams, and feel super happy about it. Decided to share about my first semester and exam experience.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/post_images/2018-11-28-first-semester.jpg" /><media:content medium="image" url="http://localhost:4000/assets/post_images/2018-11-28-first-semester.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What it feels like to study Master’s in NTU Singapore</title><link href="http://localhost:4000/2018/10/06/what-it-feels-like-to-study-masters-in-ntu-singapore.html" rel="alternate" type="text/html" title="What it feels like to study Master’s in NTU Singapore" /><published>2018-10-06T08:56:00-05:00</published><updated>2018-10-06T08:56:00-05:00</updated><id>http://localhost:4000/2018/10/06/what-it-feels-like-to-study-masters-in-ntu-singapore</id><content type="html" xml:base="http://localhost:4000/2018/10/06/what-it-feels-like-to-study-masters-in-ntu-singapore.html">&lt;h2 id=&quot;why-i-decided-to-study&quot;&gt;Why I decided to study&lt;/h2&gt;
+&lt;p&gt;In one of my previous posts I shared a story of &lt;a href=&quot;http://www.natalyakosenko.com/2018-01-06-how-i-learned-to-code-at-the-age-of-38&quot;&gt;how I learned to code at the age of 38&lt;/a&gt;. There was  a continuation. For a several months I was torn between self-doubts and desire to look for a full time programmer job. Self-doubts, because I saw (and still see) myself as an amateur. There are so many mediocre programmers in the world, why need to have one more?&lt;/p&gt;
+
+&lt;p&gt;And then I got a plan: how about I study master’s in Computer Science, so that I can fill gaps in my programming knowledge?&lt;/p&gt;
+
+&lt;h2 id=&quot;how-i-chose-a-university&quot;&gt;How I chose a university&lt;/h2&gt;
+&lt;p&gt;Some of my friends were recommending me distance education, but I prefer traditional ways: attending real classes, meeting classmates face to face, feeling the campus atmosphere. So I was choosing between part time programmes in local universities: Computer Science programme in NUS (National University of Singapore) and Information Systems programme in NTU (Nanyang Technological University).&lt;/p&gt;
+
+&lt;p&gt;To be honest, I liked the programme in NUS more as it’s pure computer science, plus the NUS campus is closer to my house. However (and here I’m being quite irrational) eventually I chose NTU, as the NTU staff I talked to via email was nicer. Plus NTU was ok with the translation of my Bachelor’s transcript certified by the Russian embassy in Singapore, whereas NUS required translated transcript to be sent by my Russian university (which I graduated from almost 20 years ago by the way).&lt;/p&gt;
+
+&lt;p&gt;So after some considerations I decided to apply for Master’s in Information Systems in Nanyang Technological University.&lt;/p&gt;
+
+&lt;h2 id=&quot;required-documents-and-fees&quot;&gt;Required documents and fees&lt;/h2&gt;
+&lt;p&gt;I won’t go too deep into details about admission procedure and requirements, if you interested you can read more about it on the &lt;a href=&quot;http://www.wkwsci.ntu.edu.sg/programmes/ProspectiveStudents/Prospective%20Masters%20and%20PhD%20students/Programmes%20by%20Coursework/MSc%20in%20Information%20Systems/Pages/Home.aspx&quot; target=&quot;_blank&quot;&gt;university website&lt;/a&gt;. Will just mention that the following documents were required:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bachelor degree in CS or related discipline (e.g. Math).&lt;/li&gt;
+  &lt;li&gt;English test IELTS not less than 6.5.&lt;/li&gt;
+  &lt;li&gt;Essay explaining why I want to study, and a recommendation letter from my employer.&lt;/li&gt;
+  &lt;li&gt;Employment pass (or any other pass that allows me to stay in Singapore - mandatory for a part time programme).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That’s it I think. The fee is about 20k SGD per year for a part time, but I applied for the Government subsidy 50% (if I get the subsidy, I will need to work in Singapore for 3 years after graduation).&lt;/p&gt;
+
+&lt;h2 id=&quot;my-first-impressions-of-studying-at-ntu&quot;&gt;My first impressions of studying at NTU&lt;/h2&gt;
+&lt;p&gt;So here I am, a student again, after XX years.
+&lt;img src=&quot;http://localhost:4000/assets/post_images/2018-10-06-ntu_card.png&quot; width=&quot;640&quot; style=&quot;display:block&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;campus-size&quot;&gt;Campus size&lt;/h3&gt;
+&lt;p&gt;The first thing that impressed me about NTU was campus’ size - it’s huge compared to the university in Siberia I graduated from. I got lost there several times, and even until now, after one and a half month of being a student, I’m still using Google map to get directions inside the NTU campus.
+&lt;img src=&quot;http://localhost:4000/assets/post_images/2018-10-06-ntu.png&quot; width=&quot;640&quot; style=&quot;display:block&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;age-does-not-matter&quot;&gt;Age does not matter&lt;/h3&gt;
+&lt;p&gt;At the beginning I felt quite uncomfortable because of my age: most of my class mates are 10-15 years younger than me, and professors (so far I met three of them) look around/below my age. But then I decided to stop thinking about the age, as it does not actually matter as long as my brain still working.&lt;/p&gt;
+
+&lt;p&gt;Btw, talking about the age, I expected professors to be slightly older, maybe around 50ish. Linux was invented in 1991, Java (which universities still like to teach) was invented in 1995. If someone was about 20 years old in 1991, now he/she should be 47. But apparently my calculations were wrong :)&lt;/p&gt;
+
+&lt;h3 id=&quot;surrounded-by-future-leaders&quot;&gt;Surrounded by future leaders&lt;/h3&gt;
+&lt;p&gt;Similar to &lt;a href=&quot;http://www.natalyakosenko.com/2018-06-29-my-first-programming-meetup-experience&quot;&gt;my expectations from programming meetups&lt;/a&gt;, I thought I will meet a lot of young and passionate developers taking this programme. But surprisingly not… Many of the classmates I talked to are not developers and not very keen to be developers after graduation, but more interested in managerial roles. Haha, I guess I am blinded by my own stereotypes :)&lt;/p&gt;
+
+&lt;h3 id=&quot;group-assignments&quot;&gt;Group assignments&lt;/h3&gt;
+&lt;p&gt;The biggest thing that really turned my world upside down was group assignments. Russian education system is mostly individual (or at least it was individual 20 years ago). In NTU, the centrepiece of every course is a group assignment, when 4-6 people work together on the same task(s), and all the group members get the same mark. Group assignments contributing 50% to the final grade, and individual exam contributing another 50%. I won’t be surprised if one day the proportion will change from 50/50 to 70/30 or even 90/10.&lt;/p&gt;
+
+&lt;p&gt;When I got my first group assignment, I was not happy at all, as group communication takes a lot of time: need to make sure that all 5 people share the same understanding. What is the benefit for me, I thought. If I do it alone, I spend 8 hours. If I do it in a group, I spend 20 hours plus a bunch of nerve cells.&lt;/p&gt;
+
+&lt;p&gt;But when we started working, I got the idea behind it. Firstly, it’s really enjoyable when you come to some solution together with a group of people rather than alone. Secondly, it’s a good opportunity to learn how to communicate with people or convince them to think your way. I don’t even mention that it reduces amount of time professors need to spend for marking :)&lt;/p&gt;
+
+&lt;h3 id=&quot;food&quot;&gt;Food&lt;/h3&gt;
+&lt;p&gt;I won’t be myself if I don’t mention about the food. My expectation of university food was: canteen that serves 3-4 dishes such as soup, pasta, meet balls and compote. In reality the variety of food in NTU canteen is bigger than around my workplace in CBD area: million types of noodles, briani, chicken rice, pratha, yong tau foo etc. Sad that I have no time to eat as I am rushing for evening classes after work, but on Saturdays I never miss the opportunity to try something.&lt;/p&gt;
+
+&lt;p&gt;So, it’s been a month and a half since I am a student. So far I love it, love attending lectures, love tons of home/mrt train reading (even including fat and boring books), love being a part of student groups, love sitting in NTU canteen every Saturday morning drinking Teh C… Will see how it goes, hope will keep enjoying!&lt;/p&gt;</content><author><name>Javier Tinoco Diaz</name></author><category term="education" /><summary type="html">Why I decided to study In one of my previous posts I shared a story of how I learned to code at the age of 38. There was a continuation. For a several months I was torn between self-doubts and desire to look for a full time programmer job. Self-doubts, because I saw (and still see) myself as an amateur. There are so many mediocre programmers in the world, why need to have one more?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/post_images/2018-10-06-ntu.png" /><media:content medium="image" url="http://localhost:4000/assets/post_images/2018-10-06-ntu.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

@@ -1,0 +1,105 @@
+<p>Have you ever had a situation when a website you are working on got some issues, and you knew about it not from your monitoring dashboards/alerts but from the end users or from your manager? For example, autosuggest stopped working, or crucial for SEO metatags misteriously disappeared from some pages, or a button suddenly became unclickable.</p>
+
+<p><img src="/assets/post_images/2018-09-20-software-bugs.jpg" style="display:block" /></p>
+
+<p>It happened to me, and I can tell there is no pleasure when someone finds your/your team mates bugs before you found them. Luckily, it happens to me not that often any more, as recently my colleague Nik enlightened me about website testing with Python and Selenium.</p>
+
+<p>How is it different from other kinds of testing? Basically the idea is to write a humanlike bot that will visit your website and do some simple actions: click buttons, type queries in autosuggest field, verify presence of webpage elements, verify meta tags etc. If something is not as expected, the bot will notify you.</p>
+
+<p>But enough words, let me show you some code. I will be testing my own blog natalyakosenko.com:</p>
+<ul>
+  <li>verify that the homepage has right title,</li>
+  <li>verify that the homepage has one and only one h1 header,</li>
+  <li>verify that all the post links on the homepage are not broken.</li>
+</ul>
+
+<p>To be honest, you do not need to use Selenium for such simple cases. Can use <code class="language-plaintext highlighter-rouge">requests</code> instead. But I am using these examples for simplicity, to explain the idea. So here is the code:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+
+
+<span class="k">class</span> <span class="nc">HomepageTest</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">Chrome</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">url</span> <span class="o">=</span> <span class="s">'http://www.natalyakosenko.com/'</span>
+
+    <span class="k">def</span> <span class="nf">test_homepage_title</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">driver</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">driver</span>
+        <span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s">'Kosenko'</span><span class="p">,</span> <span class="n">driver</span><span class="p">.</span><span class="n">title</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_homepage_h1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">driver</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">driver</span>
+        <span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">h1</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_elements_by_tag_name</span><span class="p">(</span><span class="s">'h1'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">h1</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">test_broken_links</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">driver</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">driver</span>
+        <span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">links</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_elements_by_class_name</span><span class="p">(</span><span class="s">'post-link'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="n">link</span><span class="p">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">'href'</span><span class="p">))</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">status_code</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">201</span><span class="p">))</span>
+            <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">fail</span><span class="p">(</span><span class="sa">f</span><span class="s">"Broken link detected </span><span class="si">{</span><span class="n">link</span><span class="p">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">'href'</span><span class="p">)</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">test_suite</span> <span class="o">=</span> <span class="n">unittest</span><span class="p">.</span><span class="n">TestSuite</span><span class="p">()</span>
+    <span class="n">test_suite</span><span class="p">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">HomepageTest</span><span class="p">())</span>
+    <span class="n">unittest</span><span class="p">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">warnings</span><span class="o">=</span><span class="s">'ignore'</span><span class="p">)</span></code></pre></figure>
+
+<p>In this example, I have one test suite, <code class="language-plaintext highlighter-rouge">HomepageTest</code> class. In reality you might have many test suites, each test suite contains tests that are grouped together according to pages/features they test.</p>
+
+<p>Inside <code class="language-plaintext highlighter-rouge">HomepageTest</code> there are <code class="language-plaintext highlighter-rouge">setUp</code> and <code class="language-plaintext highlighter-rouge">tearDown</code> - standard functions that contain prerequisite steps and clean-up steps for the test suite. You might be wondering, why these functions are named in camelCase instead of traditional pythonic snake_case? Well, I was wondering too, and this is what I found on <a href="https://docs.python.org/3.1/library/unittest.html">python.org</a>:</p>
+
+<blockquote>
+  <p>The Python unit testing framework, sometimes referred to as “PyUnit,” is a Python language version of JUnit, by Kent Beck and Erich Gamma. JUnit is, in turn, a Java version of Kent’s Smalltalk testing framework. Each is the de facto standard unit testing framework for its respective language.</p>
+</blockquote>
+
+<p>In this line, the instance of Chrome driver is created:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="bp">self</span><span class="p">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">Chrome</span><span class="p">()</span></code></pre></figure>
+
+<p>I used Chrome driver, but other browsers are also supported (e.g. Firefox, IE etc). If you get <code class="language-plaintext highlighter-rouge">selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable needs to be in PATH</code> error, you might want to use a solution suggested <a href="https://stackoverflow.com/questions/29858752/error-message-chromedriver-executable-needs-to-be-available-in-the-path">here</a>.</p>
+
+<p>My test suite contains 3 simple tests:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">test_homepage_title()</code> - it asserts that the site homepage contains my name in the title:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="bp">self</span><span class="p">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s">'Kosenko'</span><span class="p">,</span> <span class="n">driver</span><span class="p">.</span><span class="n">title</span><span class="p">)</span></code></pre></figure>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">test_homepage_h1</code> - this test finds all <code class="language-plaintext highlighter-rouge">h1</code> headers on the page and asserts that there is only one header h1 is found:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">h1</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_elements_by_tag_name</span><span class="p">(</span><span class="s">'h1'</span><span class="p">)</span>
+<span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">h1</span><span class="p">))</span></code></pre></figure>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">test_broken_links</code> - here I am finding all the post links on the homepage (links that have CSS class ‘post-link’), then looping through them and asserting that response status is either 200 or 201:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">links</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_elements_by_class_name</span><span class="p">(</span><span class="s">'post-link'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="n">link</span><span class="p">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">'href'</span><span class="p">))</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">status_code</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">201</span><span class="p">))</span>
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">fail</span><span class="p">(</span><span class="sa">f</span><span class="s">"Broken link detected </span><span class="si">{</span><span class="n">link</span><span class="p">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">'href'</span><span class="p">)</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s">"</span><span class="p">)</span></code></pre></figure>
+
+<p>That is it.</p>
+
+<p>The main downside of Selenium tests to me is that writing of more complex scenarios is quite time-consuming, especially for those who have different desktop/mobile sites - you will need to write everything twice. Also, it can’t fully protect your website from bugs and should be used together with other kinds of testing. Nevertheless, despite of some downsides it really helps me to sleep better at nights :)</p>
+
+<p>P.S. Btw, while writing this post and testing my code, I found a broken link on my site’s homepage.</p>

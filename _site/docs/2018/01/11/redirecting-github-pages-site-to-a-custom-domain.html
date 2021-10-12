@@ -1,0 +1,36 @@
+<p>A few years ago I had that bad habit to buy domain names. Could not stop myself from buying if I bumped into some good domain. This time, when building my current personal blog, I decided to use a standart GitHub Pages url (in my case sergodeeva.github.io). But last minute I changed my mind and bought “natalyakosenko.com”.</p>
+
+<p>The whole process of registering a domain and setting up a redirect from GitHub Pages to my new domain took me exactly 50 minutes:
+<img src="/assets/post_images/2018-01-11-whatsapp.jpg" width="320" style="display:block" />
+(At 10:27 I was asking my brother’s advise about domain name, and at 11:17 everything was done)</p>
+
+<p>Below is a step by step instruction:</p>
+
+<h2 id="register-domain">Register domain</h2>
+<p>You can register a domain with your preferrable domain registrar. In my case I went to GoDaddy.com website, checked domain natalyakosenko.com - it was available. So I made payment using my credit card - domain name only, without purchasing any additional services. Domain name cost me about $US 40 for 5 years - not a bad price I think.</p>
+
+<h2 id="add-domain-to-github-pages-site">Add domain to GitHub pages site</h2>
+<p>Now you need to decide whether you prefer using an apex domain (domain without “www”, e.g. yourdomain.com), or “www” domain (e.g. www.yourdomain.com). In my case I chose www.natalyakosenko.com.
+In your Github pages repository navigate to Settings section. Add your domain url (with or without “www”) into “Custom domain” field, like this:
+<img src="/assets/post_images/2018-01-11-github-pages.png" alt="Github Pages custom domain" /></p>
+
+<h2 id="update-domain-dns-settings">Update domain DNS settings</h2>
+<p>The last step is updating domain’s DNS settings with your DNS provider. Below are instructions for GoDaddy:</p>
+<ul>
+  <li>
+    <p>Navigate to “DNS” section:
+<img src="/assets/post_images/2018-01-11-godaddy-dns.png" alt="Manage DNS" /></p>
+  </li>
+  <li>If you are using domain with “www”, update a value of <code class="language-plaintext highlighter-rouge">CNAME</code> record with your GitHub pages url.</li>
+  <li>Create two <code class="language-plaintext highlighter-rouge">A</code> records that point your custom domain to the following IP addresses:
+    <ul>
+      <li>192.30.252.153</li>
+      <li>192.30.252.154</li>
+    </ul>
+  </li>
+</ul>
+
+<p>This is how final DNS settings should look like:
+<img src="/assets/post_images/2018-01-11-dns-settings.png" alt="Final DNS settings" /></p>
+
+<p>That is it. If your GitHub Pages site isn’t loading at your custom domain, you may have an error in your GitHub repository setup or your DNS configuration - double check all the settings.</p>

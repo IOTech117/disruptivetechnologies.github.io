@@ -1,0 +1,56 @@
+<p>Today was a happy day: for the first time in my life I consciously used a python context manager. When I <a href="http://www.natalyakosenko.com/2018-05-31-falling-in-love-with-python">started coding with Python</a> in May this year, I struggled to get the idea of context managers. Then I read a book <a href="https://realpython.com/products/python-tricks-book/">“Python Tricks” by Dan Bader</a>, which brought me out of darkness. Since then I was waiting for some real-life situation where I can apply my new knowledge. And today it happened!</p>
+
+<p>So today I was writing a web scraper that supposed to get some information from the site X. Before scraping I needed to login: fill in a form and submit it, that is why I decided to use Selenium Webdriver. My first impulse was to write something like this:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">Chrome</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://www.natalyakosenko.com/'</span><span class="p">)</span>
+
+    <span class="n">email</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">'email'</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">'password'</span><span class="p">)</span>
+
+    <span class="n">email</span><span class="p">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s">'my_email'</span><span class="p">)</span>
+    <span class="n">password</span><span class="p">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s">'my_password'</span><span class="p">)</span>
+    <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">'submit'</span><span class="p">).</span><span class="n">click</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">driver</span><span class="p">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
+
+<p>Basically, this code creates an instance of Chrome webdriver, then tries to do some stuff (in this case fills in email/password and presses Submit button), and finally <code class="language-plaintext highlighter-rouge">close</code> method is called to close a browser.</p>
+
+<p>Then I realised that I will need to use Selenium Webdirver in other parts of my code, and I did not want to instantiate driver and write try/catch again and again. And this is where I thought: what a great opportunity to try a <code class="language-plaintext highlighter-rouge">with</code> statement in action!</p>
+
+<p>The previous code written using <code class="language-plaintext highlighter-rouge">with</code> statement:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">SeleniumDriver</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">Chrome</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">driver</span>
+
+    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">with</span> <span class="n">SeleniumDriver</span><span class="p">()</span> <span class="k">as</span> <span class="n">driver</span><span class="p">:</span>
+    <span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://www.natalyakosenko.com/'</span><span class="p">)</span>
+
+    <span class="n">email</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">'email'</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">'password'</span><span class="p">)</span>
+
+    <span class="n">email</span><span class="p">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s">'my_email'</span><span class="p">)</span>
+    <span class="n">password</span><span class="p">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s">'my_password'</span><span class="p">)</span>
+    <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">'submit'</span><span class="p">).</span><span class="n">click</span><span class="p">()</span></code></pre></figure>
+
+<p>What is the benefit, you might think, instead of 12 lines of code got 19. But I do not need to define SeleniumDriver class every time. Whenever I need to use Selenium Webdriver in other parts of the code, I can simply write this:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">with</span> <span class="n">SeleniumDriver</span><span class="p">()</span> <span class="k">as</span> <span class="n">driver</span><span class="p">:</span>
+    <span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://www.natalyakosenko.com/'</span><span class="p">)</span>
+
+    <span class="n">email</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">'email'</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">'password'</span><span class="p">)</span>
+
+    <span class="n">email</span><span class="p">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s">'my_email'</span><span class="p">)</span>
+    <span class="n">password</span><span class="p">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s">'my_password'</span><span class="p">)</span>
+    <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">'submit'</span><span class="p">).</span><span class="n">click</span><span class="p">()</span></code></pre></figure>
+
+<p>Isn’t it beautiful?</p>

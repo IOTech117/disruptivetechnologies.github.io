@@ -1,0 +1,148 @@
+<p>I’ve got some interest in BigQuery recently. I’ve been using BQ for a few years, but did not enjoy it much: did not like the BigQuery UI and did not like the fact that data needs to be duplicated in a regular database (e.g. MySQL, for production usage) and in BigQuery (for analysis purposes).</p>
+
+<p>However a few weeks ago I needed to compare two lists of geographical locations in BigQuery and find matches. The first list contained about 100k geographical locations, and the second one - about 30k locations. Both lists looked like this:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>state_code</th>
+      <th>country_code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Moscow</td>
+      <td>null</td>
+      <td>Russia</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Budapest</td>
+      <td>null</td>
+      <td>Hungary</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Calgary</td>
+      <td>AB</td>
+      <td>Canada</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="step-1-getting-matches-using-select">Step 1: getting matches using SELECT</h2>
+
+<p>So I wrote a simple query to get locations that are presented in both lists:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">l1</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">l2</span><span class="p">.</span><span class="n">id</span> <span class="k">FROM</span> <span class="n">locations1</span> <span class="n">l1</span>
+<span class="k">JOIN</span> <span class="n">locations2</span> <span class="n">l2</span> <span class="k">ON</span> <span class="n">l1</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">l2</span><span class="p">.</span><span class="n">name</span>
+<span class="k">WHERE</span> <span class="n">l1</span><span class="p">.</span><span class="n">country_code</span> <span class="o">=</span> <span class="n">l2</span><span class="p">.</span><span class="n">country_code</span>
+<span class="p">(</span><span class="k">AND</span> <span class="n">l1</span><span class="p">.</span><span class="n">state_code</span> <span class="o">=</span> <span class="n">l2</span><span class="p">.</span><span class="n">state_code</span> <span class="k">OR</span> <span class="n">l1</span><span class="p">.</span><span class="n">state_code</span> <span class="k">IS</span> <span class="k">NULL</span><span class="p">);</span></code></pre></figure>
+
+<p>However how to deal with the cases when locations are named slightly differently? E.g. in <code class="language-plaintext highlighter-rouge">locations1</code> I have “St Petersburg” and in <code class="language-plaintext highlighter-rouge">locations2</code> I have “Saint Petersburg” or “St. Petersburg”. Very quickly I found major cases that causing differences:</p>
+
+<ul>
+  <li>Thai islands: “Koh Samet” vs “Ko Samet”</li>
+  <li>Missing spaces: “Chiang Mai” vs “Chiangmai”,</li>
+  <li>Missing dashes: “Ulan-Ude” vs “Ulan Ude”</li>
+  <li>Strokes: “Noril’sk” vs “Norilsk”</li>
+</ul>
+
+<h2 id="step-2-removing-special-characters">Step 2: removing special characters</h2>
+
+<p>I created a temporary function in BigQuery to normalise the string: convert it to lowercase, remove special characters, replace “saint” with “st” and “koh” with “ko”.</p>
+
+<p>The function is:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TEMP</span> <span class="k">FUNCTION</span> <span class="n">rmSpecCharacters</span><span class="p">(</span><span class="n">name_en</span> <span class="n">STRING</span><span class="p">)</span> <span class="k">AS</span>
+<span class="p">((</span>
+  <span class="k">SELECT</span> <span class="k">REPLACE</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="n">string</span><span class="p">,</span><span class="nv">"saint "</span><span class="p">,</span><span class="nv">"st "</span><span class="p">),</span> <span class="nv">" saint"</span><span class="p">,</span> <span class="nv">" st"</span><span class="p">),</span><span class="nv">"sankt "</span><span class="p">,</span><span class="nv">"st "</span><span class="p">),</span><span class="nv">" sankt"</span><span class="p">,</span><span class="nv">" st"</span><span class="p">),</span><span class="nv">"koh "</span><span class="p">,</span> <span class="nv">"ko "</span><span class="p">),</span><span class="nv">" "</span><span class="p">,</span><span class="nv">""</span><span class="p">)</span> <span class="k">FROM</span> <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="k">REPLACE</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="k">LOWER</span><span class="p">(</span><span class="n">name_en</span><span class="p">),</span><span class="nv">"´"</span><span class="p">,</span><span class="nv">""</span><span class="p">),</span><span class="nv">"'"</span><span class="p">,</span><span class="nv">""</span><span class="p">),</span><span class="nv">"ʼ"</span><span class="p">,</span><span class="nv">""</span><span class="p">),</span><span class="nv">"."</span><span class="p">,</span><span class="nv">""</span><span class="p">),</span><span class="nv">"-"</span><span class="p">,</span><span class="nv">" "</span><span class="p">)</span> <span class="k">as</span> <span class="n">string</span>
+<span class="p">)</span>
+<span class="p">));</span></code></pre></figure>
+
+<p>As you might have noticed in this query I do not handle cases like “Calangute Beach” and “Calangute”, because sometimes it can be two different locations (e.g. “Miami” and “Miami Beach” are two different cities).</p>
+
+<h2 id="step-3-replacing-accented-characters-with-latin-characters">Step 3: replacing accented characters with latin characters</h2>
+
+<p>In oppose to MySQL (I am using 5.6.34), in Big Query “á” != “a”. So this query returns <code class="language-plaintext highlighter-rouge">true</code> in Sequel Pro, but it returns <code class="language-plaintext highlighter-rouge">false</code> in BQ:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="nv">"á"</span> <span class="o">=</span> <span class="nv">"a"</span></code></pre></figure>
+
+<p>As a result BigQuery treats “Düsseldorf” and “Dusseldorf” as two different strings. So I created one more temp function to replace accented characters with latin:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TEMP</span> <span class="k">FUNCTION</span> <span class="n">accent2latin</span><span class="p">(</span><span class="n">name_en</span> <span class="n">STRING</span><span class="p">)</span> <span class="k">AS</span>
+<span class="p">((</span>
+  <span class="k">WITH</span> <span class="n">lookups</span> <span class="k">AS</span> <span class="p">(</span>
+    <span class="k">SELECT</span> 
+    <span class="nv">"ç,æ,œ,á,é,í,ó,ú,à,è,ì,ò,ù,ä,ë,ï,ö,ü,ÿ,â,ê,î,ô,û,å,ø,Ø,Å,Á,À,Â,Ä,È,É,Ê,Ë,Í,Î,Ï,Ì,Ò,Ó,Ô,Ö,Ú,Ù,Û,Ü,Ÿ,Ç,Æ,Œ,ñ,š,ý,ž,ě,õ,ň,č,ř,ť,ł,ő,ń,ź,ś,ć,ę,ã,ā,ū,ī,ð,ţ,ş,ï,ė,đ,ō,ġ,ż,ı,ç,ğ"</span> <span class="k">AS</span> <span class="n">accents</span><span class="p">,</span>
+    <span class="nv">"c,ae,oe,a,e,i,o,u,a,e,i,o,u,a,e,i,o,u,y,a,e,i,o,u,a,o,O,A,A,A,A,A,E,E,E,E,I,I,I,I,O,O,O,O,U,U,U,U,Y,C,AE,OE,n,s,y,z,e,o,n,c,r,t,l,o,n,z,s,c,e,a,a,u,i,d,t,s,i,e,d,o,g,z,i,c,g"</span> <span class="k">AS</span> <span class="n">latins</span>
+  <span class="p">),</span>
+  <span class="n">pairs</span> <span class="k">AS</span> <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="n">accent</span><span class="p">,</span> <span class="n">latin</span> <span class="k">FROM</span> <span class="n">lookups</span><span class="p">,</span> 
+      <span class="k">UNNEST</span><span class="p">(</span><span class="n">SPLIT</span><span class="p">(</span><span class="n">accents</span><span class="p">))</span> <span class="k">AS</span> <span class="n">accent</span> <span class="k">WITH</span> <span class="k">OFFSET</span> <span class="k">AS</span> <span class="n">p1</span><span class="p">,</span> 
+      <span class="k">UNNEST</span><span class="p">(</span><span class="n">SPLIT</span><span class="p">(</span><span class="n">latins</span><span class="p">))</span> <span class="k">AS</span> <span class="n">latin</span> <span class="k">WITH</span> <span class="k">OFFSET</span> <span class="k">AS</span> <span class="n">p2</span>
+    <span class="k">WHERE</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">p2</span>
+  <span class="p">)</span>
+  <span class="k">SELECT</span> <span class="n">STRING_AGG</span><span class="p">(</span><span class="n">IFNULL</span><span class="p">(</span><span class="n">latin</span><span class="p">,</span> <span class="nb">char</span><span class="p">),</span> <span class="s1">''</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="k">UNNEST</span><span class="p">(</span><span class="n">SPLIT</span><span class="p">(</span><span class="n">name_en</span><span class="p">,</span> <span class="s1">''</span><span class="p">))</span> <span class="nb">char</span>
+  <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">pairs</span>
+  <span class="k">ON</span> <span class="nb">char</span> <span class="o">=</span> <span class="n">accent</span>
+<span class="p">));</span></code></pre></figure>
+
+<p>(Original code was copied from <a href="https://stackoverflow.com/questions/43145902/bigquery-convert-accented-characters-to-their-plain-ascii-equivalents/43148949">here</a>, however I enhanced it by adding Turkish, Czech and some other accented characters).</p>
+
+<h2 id="step-4-calculating-string-similarity-using-levenshtein-algorithm">Step 4: calculating string similarity using Levenshtein algorithm</h2>
+<p>After I “normalised” location names by removing special characters, replacing dashes and parts of the string and replacing accented characters, I was able to match two lists quite accurately. However it still was not perfect as I was not able to match similar names such as “Naberezhnye Chelny” and “Naberezhnie Chelny” for example.</p>
+
+<p>To measure string similarity I decided to use <a href="https://en.wikipedia.org/wiki/Levenshtein_distance">Levenshtein distance</a> algorithm.
+So I created a temporary BigQuery function that calculates similarity of two given strings:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TEMPORARY</span> <span class="k">FUNCTION</span> <span class="n">levenshtein</span><span class="p">(</span><span class="n">a</span> <span class="n">STRING</span><span class="p">,</span> <span class="n">b</span> <span class="n">STRING</span><span class="p">)</span>
+<span class="k">RETURNS</span> <span class="n">FLOAT64</span>
+<span class="k">LANGUAGE</span> <span class="n">js</span> <span class="k">AS</span> <span class="nv">"</span><span class="se">""</span><span class="nv">
+  if(a == null) return 0;
+  if(b == null) return 0;
+  if(a.length == 0) return b.length; 
+  if(b.length == 0) return a.length; 
+
+  var matrix = [];
+
+  var i;
+  for(i = 0; i &lt;= b.length; i++){
+    matrix[i] = [i];
+  }
+
+  var j;
+  for(j = 0; j &lt;= a.length; j++){
+    matrix[0][j] = j;
+  }
+
+  for(i = 1; i &lt;= b.length; i++){
+    for(j = 1; j &lt;= a.length; j++){
+      if(b.charAt(i-1) == a.charAt(j-1)){
+        matrix[i][j] = matrix[i-1][j-1];
+      } else {
+        matrix[i][j] = Math.min(matrix[i-1][j-1] + 1,
+                                Math.min(matrix[i][j-1] + 1,
+                                         matrix[i-1][j] + 1));
+      }
+    }
+  }
+  
+  var strlen = Math.max(a.length, b.length);
+
+  return 1.0 - (matrix[b.length][a.length] / strlen);
+</span><span class="se">""</span><span class="nv">"</span><span class="p">;</span></code></pre></figure>
+
+<p>Similarity is a number between 0 and 1. Per my observations, if two location names have similarity 0.8 and above, they are most likely the same. However it is not always the case. For example, similarity of “Bangalore” and “Bengaluru” is 0.66 only.</p>
+
+<h2 id="whats-next">What’s next</h2>
+<p>Using BigQuery temporary functions, I was able to match two lists of geo locations quite fast and accurately. If there was no BiqQuery, I could write some code in Ruby perhaps, however I might had to spend more time.</p>
+
+<p>I am currently thinking on how to reduce false-positive matches of Levenshtein algo. For example, “South Palmetto Point” and “North Palmetto Point” have similarity score 0.89, however if Levenshtein algorithm knew English, it would know that “South” and “North” are two opposite things :) Or another example, “Pano Akourdalia” and “Kato Akourdalia” have 0.86 similarity score, but “Pano” and “Kato” in Greek language mean “Over” and “Below” accordingly.</p>
+
+<p>I’m wondering if I could use maching learning for that?..</p>
