@@ -18,20 +18,21 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Javier Tinoco Diaz's Website
+title: Javier Tinoco Diaz Website
 author: Javier Tinoco Diaz
 email: javiertd76@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  This is an experimental website for the MIT´s programs´s Cloud & DevOps. Started
+  This is an experimental website for the MIT program Cloud & DevOps. Started
   a journey about disruptive tecnologies for the way of doing business
 baseurl: "" # the subpath of your site, e.g. /blog
 url: 'https://disruptivetechnologies.io' # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: @MdLfy97
+twitter_username: MdLfy97
 github_username:  IOTech117
-google_analytics: 'UA-37473492-7'
+google_analytics: UA-37473492-7
 logo: 'http://www.natalyakosenko.com/assets/logo.png'
 disqus:
     shortname: javitinoco
+# Build settings    
 markdown: kramdown
 theme: jekyll-theme-cayman
 plugins:
